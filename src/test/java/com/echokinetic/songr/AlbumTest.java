@@ -48,4 +48,21 @@ class AlbumTest
         Album expected = new Album("Title", "Artist", 5, 77, "url");
         assertEquals("url", expected.imageUrl);
     }
+
+    @Test
+    void setterTest()
+    {
+        Album expected = new Album("Title", "Artist", 5, 77, "url");
+        expected.setTitle("New Title");
+        expected.setArtist("New Artist");
+        expected.setSongCount(11);
+        expected.setLength(99);
+        expected.setImageUrl("url2");
+
+        assertTrue("New Title" == expected.title);
+        assertTrue("New Artist" == expected.artist);
+        assertTrue(11 == expected.songCount);
+        assertTrue(99 == expected.length);
+        assertTrue("url2" == expected.imageUrl);
+    }
 }
