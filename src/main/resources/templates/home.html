@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="<c:url value="/resources/myCss.css" />" rel="stylesheet">
+</head>
+<body>
+    <h1>Welcome to Songr!</h1>
+<h2>Welcome to the site, <span th:if="${username}" th:text="${username}"></span></h2>
+<span th:unless="${username} != null">new user</span>
+</body>
+</html>
