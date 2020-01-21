@@ -17,6 +17,12 @@ public class HomeController
         return "home";
     }
 
+    @GetMapping("/hello")
+    public String getHello(String input, Model m)
+    {
+        return "Hello";
+    }
+
     @GetMapping("/emotions")
     public String getEmotions(Model m)
     {
