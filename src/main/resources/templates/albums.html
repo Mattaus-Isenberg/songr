@@ -2,19 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>All Albums</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Albums</h1>
-<ul>
-    <div th:each="album : ${albumsList}">
-        <h3>
-                <span th:text="${album.title}"></span>
-            </a>
-            <span th:text="' By ' + ${album.artist}"></span>
-        </h3>
-    </div>
-</ul>
+<h1>All Albums</h1>
+<div th:each="album : ${albums}">
+    <h3>
+            <span th:text="${album.title}"></span>
+        </a>
+        <span th:text="' By ' + ${album.artist}"></span>
+        <span th:text="' Number of Tracks ' + ${album.songCount}"></span>
+    </h3>
+</div>
+
+<form method="POST" action="/albums">
+    <label for="title">Album Title</label>
+    <input id="title" name="title" />
+    <label for="artist">Artist</label>
+    <input id="artist" name="artist" />
+    <label for="songCount"># of Songs</label>
+    <input id="songCount" name="songCount" type="number" min="1" max="30"/>
+    <label for="length">Song length in seconds</label>
+    <input id="length" name="length" type="number" min="20"/>
+    <label for="imageUrl">Album Image Url</label>
+    <input id="imageUrl" name="imageUrl" type="url"/>
+    <input type="submit" />
+</form>
 </body>
 </html>
