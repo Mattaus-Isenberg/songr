@@ -61,8 +61,8 @@ public class HomeController
 
     @PostMapping("/albums")
     public RedirectView addAlbum(String title, String artist, int songCount, int length, String imageUrl) {
-        Album a = new Album(title, artist, songCount, length, imageUrl);
-        album_Repository.save(a);
+        Album album = new Album(title, artist, songCount, length, imageUrl);
+        album_Repository.save(album);
         return new RedirectView("/albums");
     }
 
