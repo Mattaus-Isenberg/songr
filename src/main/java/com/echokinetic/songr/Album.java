@@ -1,7 +1,17 @@
 package com.echokinetic.songr;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Album
 {
+    @Id  //makes it the primary key of table, generated starts at one and increments
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    long id;
+
     String title;
     String artist;
     int songCount;
@@ -16,6 +26,8 @@ public class Album
         this.length = length;
         this.imageUrl = imageUrl;
     }
+
+    public Album() {}
 
     public String getTitle()
     {
@@ -40,6 +52,10 @@ public class Album
     public String getImageUrl()
     {
         return imageUrl;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public void setTitle(String title)
