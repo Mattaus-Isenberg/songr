@@ -9,10 +9,14 @@
 <h1>All Albums</h1>
 <div th:each="album : ${albums}">
     <h3>
+        <a th:href="'/album/' + ${album.id}">
             <span th:text="${album.title}"></span>
         </a>
         <span th:text="' By ' + ${album.artist}"></span>
-        <span th:text="' Number of Tracks ' + ${album.songCount}"></span>
+
+        <form th:action="'/album/delete/' + ${album.id} " method="POST">
+            <button type="submit">Delete</button>
+        </form>
     </h3>
 </div>
 
@@ -21,13 +25,15 @@
     <input id="title" name="title" />
     <label for="artist">Artist</label>
     <input id="artist" name="artist" />
-    <label for="songCount"># of Songs</label>
+    <label for="songCount">Tracks</label>
     <input id="songCount" name="songCount" type="number" min="1" max="30"/>
-    <label for="length">Song length in seconds</label>
+    <label for="length">Track length(sec)</label>
     <input id="length" name="length" type="number" min="20"/>
-    <label for="imageUrl">Album Image Url</label>
+    <label for="imageUrl">Artwork Url</label>
     <input id="imageUrl" name="imageUrl" type="url"/>
-    <input type="submit" />
+    <input type="submit"/>
+</form>
+
 </form>
 </body>
 </html>

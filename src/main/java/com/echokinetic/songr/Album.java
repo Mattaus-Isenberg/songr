@@ -1,9 +1,8 @@
 package com.echokinetic.songr;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Album
@@ -11,6 +10,10 @@ public class Album
     @Id  //makes it the primary key of table, generated starts at one and increments
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
+
+
+    @OneToMany(mappedBy = "album")
+    public List<Track> tracks;
 
     String title;
     String artist;
