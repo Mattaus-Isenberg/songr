@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Album</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1 th:text="${album.title}"></h1>
+<img th:src="${album.imageUrl}">
+<div th:each="track : ${album.tracks}">
+    <h3 th:text="'Track ' + ${track.trackNumber} + ' ' + ${track.title} + ' : ' + ${track.length} + ' seconds'"></h3>
+    <form th:action="'/tracks/delete/' + ${track.id} " method="POST">
+        <button type="submit">Delete</button>
+    </form>
+</div>
+
+<h2>Add tracks!</h2>
+<form method="POST" th:action="'/album/' + ${album.id} + '/tracks'">
+    <label for="title">Track Title</label>
+    <input id="title" name="title">
+    <label for="length">Length(secs)</label>
+    <input id="length" name="length">
+    <label for="trackNumber">Track #</label>
+    <input id="trackNumber" name="trackNumber">
+    <input type="submit">
+</form>
+</body>
+</html>
